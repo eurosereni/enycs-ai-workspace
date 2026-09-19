@@ -1,0 +1,8 @@
+.env
+.env.*
+*.key
+*.pem
+auth.json
+.claude/
+.codex/
+node_modules/
