@@ -1,26 +1,27 @@
 # M08 · ENYCS AI WorkSpace: agenti, Claude e Codex, infrastruttura
 
-*Carica quando:* lavori sul server, sul repository, sui ruoli degli agenti, sulla distribuzione del lavoro fra Claude e Codex, sulla sicurezza operativa. *Origine:* dossier v1, sezioni 12 e 17.5, **corretta con lo stato reale del server al 19 settembre 2026** (il v1 indicava Hetzner in Germania come candidato: la scelta effettiva è OVHcloud Londra).
+*Carica quando:* lavori sul server, sul repository, sui ruoli degli agenti, sulla distribuzione del lavoro fra Claude e Codex, sulla sicurezza operativa. *Origine:* dossier v1, sezioni 12 e 17.5, **corretta con lo stato reale del server al 20 settembre 2026** (il v1 indicava Hetzner in Germania come candidato: la scelta effettiva è OVHcloud Londra).
 
 ## 1. Cos'è il workspace
 
 ENYCS AI WorkSpace è un progetto di infrastruttura e metodo. Il server **non ospita una copia di ChatGPT Work**: ChatGPT Work, Claude e Codex restano servizi cloud gestiti dai rispettivi fornitori. Il server ospita ambienti di sviluppo controllati e, in futuro, servizi persistenti, job, database, archivi e integrazioni API.
 
-## 2. Stato reale dell'infrastruttura (19 settembre 2026)
+## 2. Stato reale dell'infrastruttura (20 settembre 2026)
 
-*Fonte:* Runbook v1 e Documentazione dettagliata v1 del 19 settembre 2026, che contengono anche i comandi.
+*Fonte:* Runbook v1 e Documentazione dettagliata v1 del 19 settembre 2026, che contengono anche i comandi, più le verifiche del 20 settembre 2026.
 
 | Elemento | Stato | Nota |
 |---|---|---|
-| VPS OVHcloud, Londra (Regno Unito, **non UE**) | Realizzato | Ubuntu 24.04, 4 vCore, 8 GB RAM, 75 GB più disco aggiuntivo da 50 GB; hostname `enycs-ai-workspace` |
+| VPS OVHcloud, Londra (Regno Unito, **non UE**) | Realizzato | Ubuntu 24.04, 4 vCore, 8 GB RAM, 75 GB più disco aggiuntivo da 50 GB (vedi sotto); hostname `enycs-ai-workspace`; avvio BIOS; fuso `Europe/Rome` dal 20 settembre 2026 |
 | Porte pubbliche | Nessuna | Accesso solo tramite Tailscale; SSH con sola chiave |
 | Tailscale | Realizzato | Policy con accesso consentito dal Mac di Euro al server; test di policy presenti |
 | Utenti sul server | Realizzato | `ubuntu` (amministratore, solo Euro); `agent` (senza sudo e senza docker, usato da Claude Code e Codex) |
 | Claude Code e Codex CLI | Installati come utente `agent` | Il metodo di login di Codex che ha funzionato non è registrato: da documentare |
-| Repository di lavoro privato `enycs-ai-workspace` | Realizzato | Chiave deploy in scrittura solo su quel repository; primo push fatto |
+| Repository di lavoro privato `enycs-ai-workspace` | Realizzato | Chiave deploy in scrittura solo su quel repository. `main` è protetto: si modifica solo con pull request approvata da Euro (push diretto rifiutato, verificato). Contiene la cartella `dossier/` |
 | Repository canonico (scritto solo da Euro) | **Da creare** | Necessario per la pubblicazione al merge |
-| Backup OVH automatico | Attivo | Giornaliero, 7 giorni. **Da verificare:** primo backup dopo l'hardening e prova di montaggio. Il disco aggiuntivo non è incluso nei backup automatici |
-| Ponte con Google Drive | Realizzato | Cartella `ENYCS-AI-Workspace` con `da-agenti` e `dagli-agenti`, copiate in un solo senso per cartella dal Mac verso `~/scambio/da-drive` e da `~/scambio/verso-drive` (rsync via Tailscale, chiavi dedicate e confinate, ogni 10 minuti a Mac acceso); il server non ha credenziali Google |
+| Backup OVH automatico | Attivo, leggibile | Opzione standard: **un** backup giornaliero, sostituito dal successivo (i 7 giorni sono l'opzione Premium, non attiva); orario 22:34 UTC, cioè 00:34 in Italia con l'ora legale. Il backup del 19 settembre è stato montato in sola lettura e il contenuto è coerente. **Il ripristino completo non è provato.** Lo Snapshot (a pagamento) non è attivato |
+| Disco aggiuntivo da 50 GB | Da preparare | Non formattato e non montato; destinato a un media repository. Non è incluso nei backup né negli snapshot OVH: prima di metterci dati serve un backup proprio |
+| Ponte con Google Drive | Realizzato, riverificato il 20 settembre | Cartella `ENYCS-AI-Workspace` con `da-agenti` e `dagli-agenti`, copiate in un solo senso per cartella dal Mac verso `~/scambio/da-drive` e da `~/scambio/verso-drive` (rsync via Tailscale, chiavi dedicate e confinate, ogni 10 minuti a Mac acceso); il server non ha credenziali Google. Funziona solo con il Mac acceso e su Tailscale |
 | Docker, Portainer, Uptime Kuma | **Non verificati** | Previsti nel v1; non presentarli come installati |
 | Filtro del traffico in uscita | Sconosciuto | Da valutare |
 | 2FA su GitHub, Tailscale, OVH e fornitori AI | Da verificare | |
@@ -75,6 +76,7 @@ Ogni dato è pubblico, interno, riservato, personale o finanziario. Un agente no
 ## 8. Regole di lavoro sul server per gli agenti
 
 - Lavora nella cartella del repository `enycs-ai-workspace`; commit con l'identità dell'agente, mai con quella di Euro.
+- Date e orari nei file sono in `Europe/Rome`: per un orario programmato scrivi sempre il fuso. Le pianificazioni di OVH sono in UTC.
 - Non tentare di ottenere privilegi, aprire porte, cambiare la configurazione di SSH, Tailscale o del firewall, né leggere le chiavi di altri utenti.
 - Se un'attività richiede privilegi amministrativi, fermati e descrivi a Euro cosa serve e perché.
 - Ogni modifica a una mappatura o a un flusso documenta campo, sistema sorgente, sistema destinazione, test e rollback. Nessun flusso in produzione senza prova con dati di test.

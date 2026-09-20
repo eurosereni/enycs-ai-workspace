@@ -36,12 +36,12 @@ Lo stato di ogni voce è nel registro (`registry/stato.yaml`).
 
 | Attività | Risultato atteso |
 |---|---|
-| Tenere questo dossier come fonte master nel repository degli agenti | Stesso contesto e stessi limiti per tutti |
+| Tenere questo dossier come fonte master nel repository degli agenti (fatto il 20 settembre: `dossier/` in `main`; da tenere aggiornato) | Stesso contesto e stessi limiti per tutti |
 | Inventario reale del DSKU: pagine, risorse, URL, accessi, CTA, contenuti pubblicati | Distinzione affidabile fra realizzato, predisposto e da pubblicare |
 | Test end to end del flusso GoodBarber, Brevo, Zapier, GoodBarber con un account di prova | Percorso lettore documentato, senza false aspettative |
 | Caricamento selettivo del corpus iniziale del Knowledge Hub Agent | Primo agente editoriale su fonti approvate |
 | Completare o verificare le sequenze Brevo già predisposte | Percorso del primo capitolo e del lettore coerente con gli accessi |
-| Chiudere le verifiche del server: primo backup dopo l'hardening, prova di montaggio, 2FA, accesso di emergenza | Base tecnica affidabile |
+| Chiudere le verifiche del server: backup e prova di montaggio fatti il 20 settembre; restano 2FA e accesso di emergenza (ripristino completo non provato) | Base tecnica affidabile |
 
 ### P1 · breve termine
 
@@ -63,7 +63,7 @@ Lo stato di ogni voce è nel registro (`registry/stato.yaml`).
 | Dashboard che collega metriche DSKU, Brevo e CRM | Decisioni basate su evidenze |
 | Integrazioni pubbliche, servizi e job persistenti (`funnel-api`, dominio) solo dopo il pilota | Crescita tecnica proporzionata al bisogno |
 
-## 6. Decisioni aperte al 19 settembre 2026
+## 6. Decisioni aperte al 20 settembre 2026
 
 Chiuse dopo il v1: infrastruttura server (OVHcloud Londra); quiz come verifica del possesso del libro; funnel Zapier mantenuto; canale partner in parallelo. Restano aperte:
 
@@ -76,3 +76,4 @@ Chiuse dopo il v1: infrastruttura server (OVHcloud Londra); quiz come verifica d
 7. Deleghe per eventuali invii, pubblicazioni o aggiornamenti automatici.
 8. Dominio per i servizi e funnel applicativo (rinviati).
 9. Creazione del repository canonico.
+10. Se attivare lo Snapshot OVH prima di modifiche rischiose (Docker, aggiornamento del sistema) e la strategia di backup del disco da 50 GB.

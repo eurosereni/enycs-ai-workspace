@@ -1,5 +1,5 @@
 # Registro di stato ENYCS AI WorkSpace / DSKU
-# Aggiornato: 2026-09-19 (dossier v2.0.1)
+# Aggiornato: 2026-09-20 (dossier v2.0.2)
 # Fonte per la sezione infrastruttura: Runbook v1 e Documentazione dettagliata v1 del 2026-09-19
 # Stati ammessi: realizzato | realizzato_in_parte | pubblicato | predisposto | in_sviluppo | da_verificare | futuro | rinviato
 # Stati delle attivita' di roadmap: da_fare | in_corso | fatto
@@ -49,7 +49,9 @@ infrastruttura:
     hostname: "enycs-ai-workspace"
     porte_pubbliche: nessuna
     accesso: "Tailscale; SSH con sola chiave"
-    verificato: "2026-09-19"
+    fuso_orario: "Europe/Rome dal 2026-09-20 (prima Etc/UTC); sincronizzazione NTP attiva"
+    avvio: "BIOS (legacy); in /etc/fstab la voce /boot/efi ha nofail (copia di sicurezza /etc/fstab.bak-20260920)"
+    verificato: "2026-09-20"
   utenti_server:
     admin: "ubuntu (solo Euro)"
     agenti: "agent (senza sudo, senza docker)"
@@ -60,22 +62,29 @@ infrastruttura:
     stato: realizzato
     nome: "enycs-ai-workspace (privato, GitHub)"
     chiave: "deploy key in scrittura solo su questo repository"
+    protezione_main: "Ruleset GitHub attivo su main: pull request obbligatoria (0 approvazioni), niente force push, niente cancellazione, lista bypass vuota; push diretto dell'agente su main rifiutato (verificato 2026-09-20)"
+    contenuto: "cartella dossier/ (17 file) entrata in main con la pull request n. 1; Drive, server e repository con gli stessi file (verifica con hash, 2026-09-20)"
   repository_canonico:
     stato: futuro
     nota: "Da creare; scritto solo da Euro; il servizio di pubblicazione lo legge in sola lettura"
   ponte_drive:
     stato: realizzato
     dettaglio: "Cartella Drive ENYCS-AI-Workspace (da-agenti, dagli-agenti) <-> ~/scambio/da-drive e verso-drive dell'utente agent; rsync via Tailscale con due chiavi dedicate a comando forzato (rrsync: push solo scrittura, pull solo lettura); job launchd sul Mac ogni 10 minuti; il server non ha credenziali Google"
-    verificato: "2026-09-19 (test push, pull, seconda esecuzione vuota, chiavi confinate, esecuzione da launchd)"
-    da_verificare:
-      - "funziona solo con il Mac acceso e collegato a Tailscale"
-      - "riga duplicata della chiave di Euro in authorized_keys dell'utente agent (pulizia)"
+    verificato: "2026-09-20 (test del 2026-09-19 ripetuto con la cartella del dossier: Drive, server e repository identici; riga duplicata in authorized_keys rimossa)"
+    limite: "funziona solo con il Mac acceso e collegato a Tailscale; un errore 255 subito dopo l'avvio del Mac (Tailscale non ancora attivo) e' innocuo, il job riparte da solo"
   backup_ovh:
     stato: realizzato
-    dettaglio: "Automatico giornaliero, 7 giorni; disco aggiuntivo non incluso"
+    dettaglio: "Opzione standard: 1 backup giornaliero, sostituito dal successivo (i 7 giorni sono l'opzione Premium, non attiva); orario 22:34 UTC = 00:34 ora legale italiana; il disco aggiuntivo non e' incluso"
+    snapshot: "non attivato (opzione a pagamento, uno alla volta); utile prima di modifiche rischiose come Docker o aggiornamento del sistema: e' una raccomandazione, non una decisione"
+    verificato: "2026-09-20 (backup del 2026-09-19 22:34 UTC montato in sola lettura e ispezionato: contenuto coerente con lo stato del server di quella sera; nel montaggio manca la partizione EFI, non necessaria all'avvio BIOS)"
     da_verificare:
-      - "primo backup dopo l'hardening (dopo le 00:34 del 2026-09-20)"
-      - "prova di montaggio del backup (non ripristino: il ripristino sovrascrive tutto)"
+      - "ripristino completo: NON provato (non si prova sul VPS in uso: sovrascrive tutto)"
+      - "cambio dell'orario del backup richiesto da Euro: effetto atteso dopo 24-48 ore"
+      - "il pannello OVH indica 'Non sono presenti punti di ripristino' pur elencando il punto di ripristino: differenza non spiegata"
+  disco_aggiuntivo:
+    stato: da_fare
+    dettaglio: "50 GB, /dev/sdb, non formattato e non montato; destinato a un media repository (decisione di Euro, 2026-09-20)"
+    nota: "Non incluso nei backup automatici ne' negli snapshot OVH: serve una strategia di backup propria prima di metterci dati"
   docker_portainer_uptime_kuma:
     stato: da_verificare
     nota: "Previsti nel v1; non verificati: non presentarli come installati"
@@ -104,12 +113,12 @@ agenti:
 
 roadmap:
   P0:
-    - {id: P0-1, attivita: "Dossier v2 come fonte master nel repository", stato: in_corso}
+    - {id: P0-1, attivita: "Dossier v2 come fonte master nel repository", stato: fatto}
     - {id: P0-2, attivita: "Inventario reale del DSKU", stato: da_fare}
     - {id: P0-3, attivita: "Test end to end GoodBarber-Brevo-Zapier con utente di prova", stato: da_fare}
     - {id: P0-4, attivita: "Corpus iniziale del Knowledge Hub Agent (selettivo)", stato: da_fare}
     - {id: P0-5, attivita: "Sequenze Brevo: completare o verificare", stato: da_fare}
-    - {id: P0-6, attivita: "Verifiche server: backup, montaggio, 2FA, accesso emergenza", stato: da_fare}
+    - {id: P0-6, attivita: "Verifiche server: backup, montaggio, 2FA, accesso emergenza (backup e montaggio fatti il 2026-09-20; restano 2FA e accesso di emergenza)", stato: in_corso}
   P1:
     - {id: P1-1, attivita: "Calendario editoriale trimestrale", stato: da_fare}
     - {id: P1-2, attivita: "Standard scheda editoriale, SEO, LinkedIn, newsletter", stato: da_fare}

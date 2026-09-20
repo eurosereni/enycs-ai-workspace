@@ -1,5 +1,9 @@
 # Changelog del dossier
 
+## 2.0.2 · 20 settembre 2026
+
+Verifiche del server del 20 settembre: `registry/stato.yaml`, `registry/decisioni.md`, M08 e M11 aggiornati. **Correzione:** il backup OVH è l'opzione standard con un solo backup giornaliero (non 7 giorni); il backup è stato montato in sola lettura e ispezionato, il ripristino completo non è provato. Aggiunti: fuso `Europe/Rome`, avvio BIOS con `nofail` su `/boot/efi`, protezione di `main` con ruleset, contenuto del repository (`dossier/`), disco da 50 GB destinato a media repository (non incluso nei backup). Il nucleo cambia solo in tre voci (versione, fuso, protezione di `main`).
+
 ## 2.0.1 · 19 settembre 2026
 
 Ponte con Google Drive realizzato e verificato: aggiornati `registry/stato.yaml`, `registry/decisioni.md`, M08 (stato reale) e M11 (roadmap: resta da creare solo il repository canonico). Nessun altro contenuto modificato.

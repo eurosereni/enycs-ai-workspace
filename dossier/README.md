@@ -1,4 +1,4 @@
-# Dossier DSKU v2.0.1 · come si usa
+# Dossier DSKU v2.0.2 · come si usa
 
 Fonte master del contesto per Claude, Codex e gli agenti di ENYCS AI WorkSpace. Riservato ENYCS. Non contiene segreti; non ci vanno mai credenziali, token, chiavi, dati personali, condizioni commerciali o materiali di clienti e partner.
 
