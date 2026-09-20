@@ -1,0 +1,124 @@
+# Registro di stato ENYCS AI WorkSpace / DSKU
+# Aggiornato: 2026-09-19 (dossier v2.0.1)
+# Fonte per la sezione infrastruttura: Runbook v1 e Documentazione dettagliata v1 del 2026-09-19
+# Stati ammessi: realizzato | realizzato_in_parte | pubblicato | predisposto | in_sviluppo | da_verificare | futuro | rinviato
+# Stati delle attivita' di roadmap: da_fare | in_corso | fatto
+# Regola: aggiorna una voce solo dopo una verifica o una decisione di Euro; scrivi sempre la data e la fonte.
+# Nessun segreto in questo file: niente password, token, chiavi, IP privati, dati di clienti.
+
+componenti:
+  libro:
+    stato: pubblicato
+    dettaglio: "Amazon KDP dal 2026-05-25"
+    nota: "Amazon non fornisce l'identita' dell'acquirente"
+    verificato: "2026-09-19 (dichiarazione di Euro)"
+  landing_framer:
+    stato: realizzato
+    dettaglio: "Presentazione del libro e consegna del primo capitolo"
+    verificato: "2026-09-19 (dichiarazione di Euro)"
+  dsku_goodbarber:
+    stato: pubblicato
+    dettaglio: "GoodBarber Classic"
+    da_verificare:
+      - "widget Home collegati a sezioni private"
+      - "visibilita' sottosezioni nel menu Risorse per utenti non autorizzati"
+      - "modalita' di lettura del Primo Capitolo"
+      - "gestione download"
+      - "promozione da registrato a lettore"
+  funnel_gb_zapier_brevo:
+    stato: realizzato
+    dettaglio: "Quiz di verifica del possesso del libro realizzato e testato (dichiarazione di Euro); funnel Zapier mantenuto com'e'"
+    da_verificare: "test end to end con utente di prova (P0)"
+  sequenze_brevo:
+    stato: predisposto
+    dettaglio: "Primo capitolo: prime 3 email predisposte; ramo lettori: prime email lavorate"
+    da_verificare: "versione attiva in Brevo prima di cambiare flusso o contenuto"
+  risorse_lettori:
+    stato: realizzato_in_parte
+    dettaglio: "Primo nucleo di checklist e template; documenti del 17 settembre 2026"
+    da_verificare: "URL e visibilita' prima di citarli"
+  digital_signage_weekly:
+    stato: in_sviluppo
+    dettaglio: "Rassegna settimanale, martedi' 08:00 Europe/Rome; output mai pubblicato automaticamente"
+
+infrastruttura:
+  server:
+    stato: realizzato
+    fornitore: "OVHcloud VPS-2, Londra (Regno Unito, non UE)"
+    sistema: "Ubuntu 24.04"
+    hostname: "enycs-ai-workspace"
+    porte_pubbliche: nessuna
+    accesso: "Tailscale; SSH con sola chiave"
+    verificato: "2026-09-19"
+  utenti_server:
+    admin: "ubuntu (solo Euro)"
+    agenti: "agent (senza sudo, senza docker)"
+  agenti_installati:
+    - "Claude Code (utente agent)"
+    - "Codex CLI (utente agent)"
+  repository_lavoro:
+    stato: realizzato
+    nome: "enycs-ai-workspace (privato, GitHub)"
+    chiave: "deploy key in scrittura solo su questo repository"
+  repository_canonico:
+    stato: futuro
+    nota: "Da creare; scritto solo da Euro; il servizio di pubblicazione lo legge in sola lettura"
+  ponte_drive:
+    stato: realizzato
+    dettaglio: "Cartella Drive ENYCS-AI-Workspace (da-agenti, dagli-agenti) <-> ~/scambio/da-drive e verso-drive dell'utente agent; rsync via Tailscale con due chiavi dedicate a comando forzato (rrsync: push solo scrittura, pull solo lettura); job launchd sul Mac ogni 10 minuti; il server non ha credenziali Google"
+    verificato: "2026-09-19 (test push, pull, seconda esecuzione vuota, chiavi confinate, esecuzione da launchd)"
+    da_verificare:
+      - "funziona solo con il Mac acceso e collegato a Tailscale"
+      - "riga duplicata della chiave di Euro in authorized_keys dell'utente agent (pulizia)"
+  backup_ovh:
+    stato: realizzato
+    dettaglio: "Automatico giornaliero, 7 giorni; disco aggiuntivo non incluso"
+    da_verificare:
+      - "primo backup dopo l'hardening (dopo le 00:34 del 2026-09-20)"
+      - "prova di montaggio del backup (non ripristino: il ripristino sovrascrive tutto)"
+  docker_portainer_uptime_kuma:
+    stato: da_verificare
+    nota: "Previsti nel v1; non verificati: non presentarli come installati"
+  filtro_traffico_uscita:
+    stato: da_verificare
+  autenticazione_a_due_fattori:
+    stato: da_verificare
+    ambiti: [github, tailscale, ovh, fornitori_ai]
+  accesso_emergenza_console_ovh:
+    stato: da_verificare
+    nota: "Da documentare"
+  funnel_api_dominio_servizi:
+    stato: rinviato
+    nota: "Nessun dominio adatto; se ne riparla dopo il pilota"
+
+agenti:
+  coordinatore: futuro
+  navori_agent: futuro
+  marketing_agent: in_sviluppo
+  crm_notion_agent: futuro
+  knowledge_hub_agent: predisposto
+  test_agent: futuro
+  assistente_dsku: futuro
+  enycs_dashboard: "applicazione separata"
+  signaloop: "applicazione indipendente"
+
+roadmap:
+  P0:
+    - {id: P0-1, attivita: "Dossier v2 come fonte master nel repository", stato: in_corso}
+    - {id: P0-2, attivita: "Inventario reale del DSKU", stato: da_fare}
+    - {id: P0-3, attivita: "Test end to end GoodBarber-Brevo-Zapier con utente di prova", stato: da_fare}
+    - {id: P0-4, attivita: "Corpus iniziale del Knowledge Hub Agent (selettivo)", stato: da_fare}
+    - {id: P0-5, attivita: "Sequenze Brevo: completare o verificare", stato: da_fare}
+    - {id: P0-6, attivita: "Verifiche server: backup, montaggio, 2FA, accesso emergenza", stato: da_fare}
+  P1:
+    - {id: P1-1, attivita: "Calendario editoriale trimestrale", stato: da_fare}
+    - {id: P1-2, attivita: "Standard scheda editoriale, SEO, LinkedIn, newsletter", stato: da_fare}
+    - {id: P1-3, attivita: "Schema CRM lead progetto e lead canale", stato: da_fare}
+    - {id: P1-4, attivita: "Navori Agent: test con dieci domande reali", stato: da_fare}
+    - {id: P1-5, attivita: "Modello di proposta workshop, demo, percorso partner", stato: da_fare}
+    - {id: P1-6, attivita: "Repository canonico (il ponte con Drive e' realizzato)", stato: da_fare}
+  P2:
+    - {id: P2-1, attivita: "Marketing Agent con bozza e approvazione", stato: da_fare}
+    - {id: P2-2, attivita: "Assistente DSKU su corpus limitato", stato: da_fare}
+    - {id: P2-3, attivita: "Dashboard DSKU, Brevo, CRM", stato: da_fare}
+    - {id: P2-4, attivita: "Servizi pubblici e job persistenti dopo il pilota", stato: da_fare}
