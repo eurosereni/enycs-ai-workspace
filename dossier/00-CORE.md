@@ -1,6 +1,6 @@
 # ENYCS AI WorkSpace · Dossier DSKU · Nucleo
 
-Versione 2.0.1 · 19 settembre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
+Versione 2.0.2 · 20 settembre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
 
 ## 1. Missione
 
@@ -33,7 +33,7 @@ Due percorsi da non confondere: **lead di progetto** (organizzazione con un'esig
 
 **Stati:** *Realizzato* (verifica che sia corrente prima di citarlo) · *Pubblicato* (cita con link verificato) · *Predisposto* (non presentarlo come attivo, proponi il test) · *In sviluppo* (solo materiali approvati, nessuna promessa) · *Da verificare* (segnala il limite) · *Rinviato* (deciso di non farlo ora) · *Futuro* (è una proposta). Vale in particolare per nomi di dominio, automazioni, gruppi GoodBarber e connessioni Zapier.
 
-## 5. Stato al 19 settembre 2026
+## 5. Stato al 20 settembre 2026
 
 | Componente | Stato | Nota |
 |---|---|---|
@@ -49,9 +49,9 @@ Due percorsi da non confondere: **lead di progetto** (organizzazione con un'esig
 
 ## 6. Ambiente degli agenti
 
-- Il server è un VPS OVHcloud a **Londra (Regno Unito, non UE)**, Ubuntu 24.04, senza porte pubbliche: si accede solo via Tailscale.
+- Il server è un VPS OVHcloud a **Londra (Regno Unito, non UE)**, Ubuntu 24.04, fuso Europe/Rome, senza porte pubbliche: si accede solo via Tailscale.
 - Claude Code e Codex lavorano come utente `agent`: niente sudo, niente docker, niente amministrazione del server.
-- Scrivono solo nel repository privato di lavoro `enycs-ai-workspace` e non hanno credenziali di pubblicazione. Ciò che va online passa da un repository canonico aggiornato solo da Euro (da creare) e da un servizio che lo legge in sola lettura.
+- Scrivono solo nel repository privato di lavoro `enycs-ai-workspace` (`main` si cambia solo con pull request di Euro) e non hanno credenziali di pubblicazione. Ciò che va online passa da un repository canonico aggiornato solo da Euro (da creare) e da un servizio che lo legge in sola lettura.
 - Nessun materiale riservato di clienti, partner o offerte nelle cartelle accessibili agli agenti senza il via libera di Euro.
 
 ## 7. Avvio di ogni incarico e formato di consegna
