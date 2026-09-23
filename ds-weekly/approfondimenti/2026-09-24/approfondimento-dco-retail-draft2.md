@@ -1,0 +1,187 @@
+# Lo schermo giusto al momento giusto funziona anche quando lo schermo è tuo?
+
+**Obiettivo:** approfondimento DSKU che porta la logica DCO e dei trigger del DOOH nelle reti Digital Signage proprietarie del retail, con un esempio verificabile di piattaforma (Navori QL) e di sensoristica (Nexmosphere)
+**Pubblico:** responsabili marketing, trade marketing, retail operations e IT di catene e GDO; system integrator (lead di progetto e di canale)
+**Stato:** bozza 2, pronta per revisione di Euro — non pubblicata
+**Versione:** draft2 del 24 settembre 2026 (sostituisce draft1 del 23 settembre)
+
+**Fonti (lette il 23 e 24 settembre 2026):**
+- Broadsign, "Dynamic creative optimization (DCO) in DOOH…", Quinn Mason, 22 luglio 2026 — fonte vendor
+- Broadsign, "Digital out-of-home for holiday marketing…", 15 settembre 2026 — fonte vendor
+- Clear Channel, JCDecaux UK, Posterscope, "The Moments of Truth", 3 marzo 2020 — ricerca di settore, Regno Unito
+- oOh!media / Analytic Partners, "ROI Report" (Australia, pagina non datata) — ricerca di settore
+- Navori, manuale QL: "Rule-Based Playback" e "Rule-Based Triggering" — documentazione ufficiale del produttore
+- Navori, "Integrate Navori Digital Signage Software with any 3rd party system", 16 settembre 2024 — blog del produttore
+- Navori Labs, demo "Lift & Learn with Nexmosphere RFID", InfoComm 2025 (video YouTube) — dimostrazione del produttore
+- Nexmosphere, sito ufficiale (nexmosphere.com) — fonte del produttore
+- Euro Sereni, conferma del 24 settembre 2026: Navori gestisce trigger interni ed esterni e integra la maggior parte della sensoristica Nexmosphere
+
+**Fatti confermati:**
+- La definizione di DCO, l'elenco dei trigger, gli esempi e la checklist sono quelli dell'articolo Broadsign del 22 luglio.
+- Il +17% è un uplift medio: +18% risposta cerebrale, +17% notorietà spontanea, +16% vendite (UK, 2020, ricerca promossa da media owner).
+- Navori QL, dalla versione 2.1, documenta due meccanismi. La *Rule-Based Playback* manda in onda un contenuto della playlist solo se le condizioni sui data feed sono vere (operatori testuali e numerici, combinabili in AND/OR). Il *Rule-Based Triggering* interrompe la programmazione finché la condizione resta vera. Le fonti di trigger documentate sono data feed (RSS, XML), CAP, QL Player Trigger API, sensori hardware (movimento, temperatura, RFID) e QL Spy.
+- Il Data Feed Manager di Navori gestisce meteo, database interni e sistemi di inventario e prezzi, secondo il blog Navori.
+- Nexmosphere (Eindhoven) dichiara oltre 25 tipi di sensori, collegamento al player con un'unica connessione USB o UDP e installazioni da 1 a 250 sensori per punto.
+
+**Punti da verificare / attenzione:**
+1. **Il "2,5x" non è un dato sulla DCO.** La fonte parla del ROI dell'OOH australiano rispetto ai benchmark internazionali. Nell'articolo lo spieghiamo apertamente.
+2. Il +16% di vendite confronta una campagna OOH dinamica con **nessuna** campagna OOH, non con una campagna statica.
+3. I dati sulle feste (52 giorni, 42%, 79%) e il caso De'Longhi sono di seconda mano (via Broadsign).
+4. **Navori e Nexmosphere.** Euro conferma che Navori integra la maggior parte dei sensori Nexmosphere. Pubblicamente è documentata la demo RFID Lift & Learn a InfoComm 2025, e il manuale QL cita sensori hardware generici. Nel testo pubblico ho scritto «integrazione dimostrata con i sensori Nexmosphere», senza «la maggior parte», finché non esiste un elenco pubblico dei sensori supportati. Se Euro ha una fonte citabile, si può rafforzare.
+5. Da non promettere nel testo, perché dipende dal progetto:
+    - l'add-on "Trigger Media": sulla versione on-premise va attivato in licenza, su QL Cloud è incluso di default secondo il manuale;
+    - la compatibilità del sensore con il sistema operativo del player;
+    - la registrazione degli eventi di trigger ai fini della misura.
+6. Gli esempi retail italiani sono **scenari progettuali**, non casi reali.
+7. Link YouTube della demo InfoComm 2025: https://www.youtube.com/watch?v=zDgNP2aPeKk (verificare che resti online prima di pubblicare).
+
+**Decisione richiesta:** approvare tesi, titolo, sezione Navori/Nexmosphere e trattamento del dato 2,5x; scegliere la CTA.
+**Prossima azione:** revisione di Euro → caricamento come **bozza** nel CMS DSKU solo dopo approvazione esplicita.
+
+---
+
+## Articolo
+
+# Lo schermo giusto al momento giusto funziona anche quando lo schermo è tuo?
+
+Nel mondo della pubblicità digitale esterna si ripete da anni la stessa promessa: il messaggio giusto, sullo schermo giusto, al momento giusto. Broadsign, in un articolo del 22 luglio dedicato alla *Dynamic Creative Optimization* (DCO), la porta un passo più in là. Oggi non si decide soltanto *quale* annuncio mandare in onda e *dove*: è l'annuncio stesso che cambia in tempo reale in base al contesto.
+
+L'articolo parla a chi compra spazi pubblicitari. La domanda che ci interessa è un'altra: **questa logica vale anche per una rete Digital Signage che non vende spazi a nessuno?** Pensiamo alla catena retail che usa i propri schermi per comunicare i propri prodotti, le proprie promozioni e il proprio brand.
+
+La nostra risposta è sì. Anzi, in negozio la logica funziona meglio che per strada, a patto di cambiare il modo in cui la si misura. E in negozio si aggiunge qualcosa che per strada non esiste: il cliente che prende in mano un prodotto.
+
+### Che cosa dice Broadsign, in sintesi
+
+La DCO adatta in automatico gli elementi della creatività (testi, immagini, prodotti o offerte in evidenza) a condizioni reali. Broadsign indica questi trigger:
+
+- meteo e temperatura;
+- fascia oraria;
+- condizioni del traffico;
+- **disponibilità di prodotto nei punti vendita vicini**;
+- prossimità a un luogo;
+- risultati sportivi in diretta;
+- tassi di interesse.
+
+Gli esempi sono concreti: bevande fredde quando sale la temperatura e calde quando scende; prodotti in evidenza secondo ciò che è in stock nel negozio più vicino. C'è anche il caso foodora, che ha combinato meteo, orario e vicinanza ai ristoranti.
+
+Due indicazioni pratiche meritano attenzione. La prima riguarda la produzione. Non servono decine o centinaia di annunci finiti, ma **un template modulare**, tipicamente in HTML5, che compone le varianti secondo regole predefinite. La seconda riguarda la misurazione. Si misura **per variante**, non solo sul risultato complessivo della campagna: quale messaggio funziona in quale contesto, quale trigger produce l'effetto maggiore.
+
+L'articolo chiude con un avvertimento che condividiamo: la creatività dinamica va usata quando la pertinenza aggiunta serve all'obiettivo, non per aggiungere complessità dove basta un messaggio forte.
+
+### I numeri, letti alla fonte
+
+Broadsign sostiene che messaggi adattati al contesto aumentano l'efficacia complessiva della campagna del **17%** e generano ritorni **fino a 2,5 volte superiori**. Abbiamo aperto le due fonti citate.
+
+- **+17%.** Viene da "The Moments of Truth", una ricerca in tre fasi pubblicata nel marzo 2020 nel Regno Unito da Clear Channel, JCDecaux UK e Posterscope: neuroscienze, eye-tracking e test di vendita. Il 17% è la media di tre risultati. La risposta cerebrale sale del **18%** davanti a contenuti pertinenti. La notorietà spontanea degli annunci pertinenti sale in media del **17%**. Le vendite crescono del **16%** con una campagna OOH dinamica, ma rispetto a un gruppo di controllo **senza alcuna campagna OOH**, non rispetto a una campagna statica. È un dato solido nel metodo, però promosso da media owner. Va letto come indicazione di direzione.
+- **2,5 volte.** La fonte è un report di oOh!media basato su modelli di *marketing mix* di Analytic Partners. Dice che l'out-of-home **australiano** rende «fino a 2,5 volte il ROI dei benchmark internazionali». È un confronto fra mercati sull'OOH in generale, **non** una misura dell'effetto della creatività dinamica. Non lo useremmo per giustificare un investimento in DCO.
+
+Non è pignoleria. Chi deve chiedere un budget interno per una rete dinamica ha bisogno di numeri che reggano la domanda «da dove viene questo dato?».
+
+Nella sua guida alle feste del 15 settembre, Broadsign aggiunge dati sul comportamento d'acquisto, tutti di seconda mano e riferiti agli Stati Uniti. Il percorso d'acquisto dei regali dura in media **52 giorni** (Microsoft). Il **42%** degli shopper va in negozio per comprare qualcosa che ha già trovato online (Salesforce). Il **79%** usa lo smartphone mentre è nel punto vendita. Per De'Longhi in Polonia, Broadsign dichiara **+121%** di preferenza di marca e **+190%** di intenzione di interagire con il brand: è un caso del vendor, non una verifica indipendente.
+
+### Dal DOOH al negozio: che cosa cambia
+
+Nel DOOH lo schermo appartiene a un media owner, lo spazio si compra (spesso in programmatic) e la DCO serve all'inserzionista. In una rete retail proprietaria non c'è nessuno spazio da vendere. Lo schermo serve alla catena per spingere un prodotto, sostenere una promozione, raccontare il brand, orientare il cliente.
+
+Cambiano tre cose, e tutte a favore del retailer.
+
+**1. Il pubblico è già nel momento della scelta.** Uno schermo in strada intercetta persone che forse, un giorno, compreranno. Chi passa davanti alla vetrina, entra o cammina in corsia sta già decidendo, e se il 42% arriva in negozio per un prodotto visto online, quella decisione è spesso già avviata. È un'interpretazione, non un dato misurato sul mercato italiano, ma è la ragione per cui un trigger in negozio pesa di più. Anche la prossimità cambia significato: non è più «vicino a un ristorante», ma **dove si trova lo schermo lungo il percorso del cliente**. In vetrina deve convincere a entrare, in corsia aiuta a scegliere, alla cassa suggerisce un'aggiunta o l'iscrizione al programma fedeltà.
+
+**2. I trigger migliori sono già in casa.** L'inserzionista DOOH deve procurarsi i dati e sperare che il media partner li supporti. Il retailer ha già quelli più preziosi, di prima parte: giacenze per punto vendita, prezzi e promozioni attive, vendite per fascia oraria, calendario commerciale, affluenza e code dove misurate. Il trigger «disponibilità di prodotto», che Broadsign cita come esempio, in negozio diventa la regola più naturale: **non promuovere ciò che non c'è, e spingere ciò che c'è in eccesso.**
+
+**3. La misura si chiude sullo scontrino.** Nel DOOH l'efficacia si stima con impression, studi di brand lift e attribuzione. In negozio la cassa è a pochi metri. Il metodo della ricerca UK, cioè un intervento confrontato con un controllo, si replica con punti vendita test e punti vendita di confronto nello stesso periodo. Resta valida l'indicazione di Broadsign di misurare per variante, ma con un indicatore più vicino al business: vendite del prodotto promosso, scontrino medio, adesioni alla fidelity.
+
+### Trigger esterni e trigger interni: il vantaggio che il DOOH non ha
+
+I trigger di cui parla Broadsign sono quasi tutti **esterni**: dati che arrivano da fuori (meteo, traffico, risultati sportivi, tassi) o da sistemi aziendali (giacenze, prezzi). In negozio se ne aggiunge una seconda famiglia, che nel DOOH è quasi impossibile: i trigger **interni**, generati da ciò che il cliente fa davanti allo schermo.
+
+- **Presenza e prossimità:** qualcuno si ferma davanti allo scaffale e lo schermo passa dal messaggio d'attrazione alla scheda prodotto.
+- **Lift & Learn:** il cliente solleva un prodotto dal ripiano e lo schermo mostra caratteristiche, confronto o recensioni proprio di quel modello.
+- **RFID e NFC:** un prodotto o una card appoggiati su un punto di lettura richiamano il contenuto corrispondente.
+- **Pulsanti, gesti, sensori ambientali:** scelta guidata senza touchscreen, oppure contenuti che reagiscono a luce e temperatura del punto vendita.
+
+È qui che la DCO in negozio cambia natura. Non adatta più il messaggio a un pubblico stimato: **risponde a un gesto d'acquisto reale, nell'istante in cui avviene.** È il momento in cui la propensione all'acquisto è più alta, ed è anche un dato misurabile. Quante volte un prodotto è stato sollevato, in quale fascia oraria, con quale contenuto in onda: informazioni che si possono affiancare alle vendite dello stesso scaffale.
+
+La componente hardware esiste ed è standardizzata. Nexmosphere, azienda olandese di Eindhoven specializzata in interattività per il Digital Signage, dichiara oltre 25 tipi di sensori: presenza, prossimità, Lift & Learn, RFID/NFC, pulsanti, gesture, lidar, luce e temperatura. Si collegano al player con un'unica connessione USB o UDP, in progetti che vanno da un singolo sensore fino a 250 per punto di installazione.
+
+### Un esempio concreto di piattaforma: Navori QL
+
+Senza SSP o piattaforme programmatiche, tutto passa dal **CMS**. È utile vedere come un CMS professionale traduce questi concetti in funzioni documentate. Navori QL, a partire dalla versione 2.1, prevede nel proprio manuale due meccanismi distinti.
+
+- **Rule-Based Playback.** Un contenuto già inserito in una playlist va in onda solo se certe condizioni sui dati sono vere: un valore contenuto in un feed, una soglia numerica superata o non raggiunta, più regole combinate in AND/OR. È la logica «bevanda fredda sopra i 25 gradi, promo solo se la giacenza supera la soglia».
+- **Rule-Based Triggering.** Un contenuto interrompe la programmazione ordinaria finché la condizione resta vera, poi il palinsesto riprende da solo. Le fonti previste dal manuale sono i data feed (RSS, XML), il protocollo CAP per gli avvisi, la **QL Player Trigger API** per applicazioni terze e dispositivi, e i **sensori hardware** (movimento, temperatura, RFID). Il trigger si può limitare a un gruppo di player invece che all'intera rete.
+
+Per i dati esterni, Navori indica nel Data Feed Manager l'integrazione di meteo e database interni. Tra i sistemi collegabili cita esplicitamente gestione dell'inventario e dei prezzi. Per i trigger interni, Navori ha mostrato pubblicamente a InfoComm 2025 un'applicazione Lift & Learn basata sui sensori RFID Nexmosphere.
+
+In pratica, la stessa rete può combinare le due famiglie. Il feed meteo e la giacenza decidono *quale* promozione è in playlist in quel negozio. Il sensore sullo scaffale decide *quando* lo schermo smette di attrarre e comincia a spiegare.
+
+Non è l'unica piattaforma possibile, e le funzioni vanno sempre verificate sull'edizione, sulla licenza e sul player del singolo progetto. È però una buona pietra di paragone per la domanda da fare a qualunque fornitore. Non chiedete «supportate la DCO?», ma: le playlist cambiano **per condizione** e non solo per calendario? Posso collegare feed di dati e sensori? I template si aggiornano da dati senza un file per ogni variante? Posso sapere quale contenuto è andato in onda, dove e quando?
+
+### Trigger per trigger: la traduzione retail
+
+Gli esempi che seguono sono **scenari progettuali**, non casi documentati.
+
+| Trigger | Equivalente in una rete retail | Esempio di regola | Dato necessario |
+|---|---|---|---|
+| Meteo e temperatura | Stagionalità del giorno, non del mese | Primo giorno di pioggia: ombrelli in vetrina; prima ondata di caldo: bevande e protezione solare in corsia | Feed meteo per località |
+| Fascia oraria | Missione d'acquisto tipica dell'ora | Pausa pranzo: pronto da mangiare; dopo le 18: spesa per la cena; weekend: acquisti pianificati | Calendario e orari del punto vendita |
+| Disponibilità di prodotto | Giacenza del singolo negozio | Se lo stock scende sotto la soglia, la promo esce dalla playlist; se c'è sovrastock, sale la frequenza | Integrazione con gestionale o ERP |
+| Prossimità a un luogo | Posizione nel percorso cliente | Vetrina: motivo per entrare; corsia: confronto e scelta; cassa: fidelity e impulso | Anagrafica schermi per zona |
+| Traffico | Affluenza e code | Con coda alle casse: messaggi brevi, app fedeltà; a negozio vuoto: contenuti di marca più lunghi | Conta persone o dati di cassa |
+| Eventi in diretta | Calendario commerciale | Countdown a una scadenza (ritiro entro Natale, fine promo) | Calendario promozionale |
+| *(solo in negozio)* Interazione fisica | Il cliente si avvicina, solleva o appoggia un prodotto | Presenza: da attrazione a scheda prodotto; prodotto sollevato: confronto e prezzo di quel modello | Sensori di presenza, Lift & Learn, RFID |
+
+La campagna istituzionale o di brand non resta esclusa. Anche un messaggio corporate (sostenibilità, filiera, valori, programma fedeltà) rende di più se cambia forma secondo il punto del percorso e il momento della giornata. La sostanza del messaggio resta la stessa, cambiano la durata, il tono e l'invito all'azione.
+
+### Dove si sbaglia
+
+- **Dati sporchi.** Una promozione che resta sullo schermo quando il prodotto è esaurito fa più danno di un cartello statico. Prima del trigger viene la qualità del dato.
+- **Troppe varianti.** Broadsign consiglia di partire da pochi elementi dinamici, e in negozio vale doppio. Ogni variabile moltiplica le combinazioni da approvare, verificare e misurare.
+- **Sensori senza manutenzione.** Un sensore spostato durante il riallestimento dello scaffale o una batteria scarica spengono l'interazione senza che nessuno se ne accorga. Serve un controllo periodico, come per gli schermi.
+- **Privacy sottovalutata.** Se i sensori rilevano la presenza di persone, il trattamento va valutato con chi in azienda si occupa di protezione dei dati prima dell'installazione.
+- **Governance assente.** Chi decide la regola, chi approva il template, chi può forzare un contenuto locale? Senza ruoli chiari la rete dinamica diventa una rete incoerente.
+- **Misura rimandata.** Se test e controllo non sono definiti prima di partire, a fine campagna resterà un'impressione, non un risultato.
+
+### Sei domande prima di partire
+
+1. Quale obiettivo di business deve spostare la regola dinamica: sell-out, scontrino, fidelity, percezione del brand?
+2. Quale dato, di quale sistema, attiva il cambio di contenuto? È affidabile e aggiornato con la frequenza necessaria?
+3. Dove serve un trigger interno (sensore) e dove basta un trigger esterno (dato)?
+4. Il CMS gestisce contenuti condizionali, feed di dati e sensori, e registra quale contenuto è andato in onda?
+5. Chi approva template e regole, e chi risponde quando un dato o un sensore non funziona?
+6. Quali punti vendita fanno da test e quali da controllo, e per quanto tempo?
+
+Una rete retail che non vende spazi pubblicitari non ha bisogno della DCO per fare concorrenza al DOOH. Ne ha bisogno per non sprecare il suo vantaggio: parlare a clienti che sono già nel negozio, con dati che nessun inserzionista esterno possiede e con gesti d'acquisto che nessuno schermo in strada può vedere. Non conta quante varianti si producono. Conta quanta pertinenza si mette davanti a chi sta per scegliere.
+
+---
+
+*Fonti*
+
+- Broadsign, Quinn Mason, ["Dynamic creative optimization (DCO) in DOOH: What marketers need to know before launching their first campaign"](https://broadsign.com/blog/dynamic-creative-optimization-dco-in-dooh-what-marketers-need-to-know-before-launching-their-first-campaign/), 22 luglio 2026.
+- Broadsign, ["Digital out-of-home for holiday marketing: How to win high-intent shopping moments"](https://broadsign.com/blog/digital-out-of-home-for-holiday-marketing-how-to-win-high-intent-shopping-moments/), 15 settembre 2026.
+- Clear Channel, JCDecaux UK, Posterscope, ["The Moments of Truth"](https://www.jcdecaux.com/blog/landmark-three-stage-research-moments-truth-reveals-use-contextually-relevant-messaging), 3 marzo 2020.
+- oOh!media / Analytic Partners, ["ROI Report"](https://oohmedia.com.au/roi-report/), Australia (pagina non datata, consultata il 23 settembre 2026).
+- Navori, manuale QL: ["Rule-Based Playback"](https://manual-qlpro.navori.com/Rule-BasedPlayback.html) e ["Rule-Based Triggering"](https://manual-qlpro.navori.com/Rule-BasedTriggering.html), consultati il 24 settembre 2026.
+- Navori, ["Integrate Navori Digital Signage Software with any 3rd party system"](https://navori.com/blog/ql-software-integration/), 16 settembre 2024.
+- Navori Labs, ["InfoComm 2025: Navori Labs Demos Lift & Learn with Nexmosphere RFID"](https://www.youtube.com/watch?v=zDgNP2aPeKk), video.
+- Nexmosphere, [nexmosphere.com](https://www.nexmosphere.com), consultato il 24 settembre 2026.
+
+---
+
+## Materiali di distribuzione (per revisione)
+
+**Slug:** `dco-digital-signage-retail-trigger-sensori`
+**Meta title (≤60):** DCO, trigger e sensori: lo schermo giusto nel retail
+**Meta description (≤155):** La creatività dinamica nasce nel DOOH. In negozio funziona meglio: dati di prima parte, sensori sullo scaffale, misura sullo scontrino.
+
+**CTA proposta:** «Stai valutando una rete retail con contenuti guidati da dati o sensori? Raccontaci il tuo caso: partiamo dall'obiettivo, non dalla tecnologia.» (in alternativa, rimando alla checklist DSKU se pubblicata)
+
+**Post LinkedIn (bozza):**
+Nel DOOH si parla di Dynamic Creative Optimization: l'annuncio cambia da solo in base a meteo, orario, stock, prossimità.
+Una domanda che ci siamo fatti: vale anche per le reti Digital Signage dei retailer, che non vendono spazi ma comunicano i propri prodotti e il proprio brand?
+Secondo noi sì, e funziona meglio. Il cliente è già in fase di scelta. I dati migliori (giacenze, prezzi, vendite orarie) sono già in casa. E in negozio esistono trigger che per strada non ci sono: il cliente che si avvicina allo scaffale o solleva un prodotto.
+Una nota di metodo: dei due numeri che circolano sulla DCO, +17% e "fino a 2,5x", il secondo alla fonte non riguarda la creatività dinamica. Nell'articolo spieghiamo perché conta.
+→ link all'articolo DSKU
+
+**Sintesi newsletter (2 righe):**
+La creatività dinamica del DOOH, tradotta nelle reti retail proprietarie: trigger esterni da dati di prima parte, trigger interni da sensori sullo scaffale, misura con punti vendita test e di controllo. Con un esempio di piattaforma e una verifica delle fonti sui numeri più citati.
