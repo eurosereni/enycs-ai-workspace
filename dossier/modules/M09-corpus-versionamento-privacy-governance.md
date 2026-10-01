@@ -36,6 +36,20 @@ Prima di collegare Brevo, GoodBarber, Notion, Gmail, calendario o altri servizi 
 
 Il server è a Londra, quindi il Regno Unito non fa parte dell'UE. Al 19 settembre 2026 le fonti giuridiche consultate indicano che la decisione di adeguatezza UE per il Regno Unito è stata rinnovata fino al 27 dicembre 2031. È un'informazione di contesto, non un parere legale: prima di far transitare dati personali di lettori o lead sul server, la base e le garanzie vanno confermate con il consulente competente. Finché la base non è confermata, non si caricano sul server dati personali reali di lettori o lead.
 
+**Il server resta a Londra** (decisione di Euro, 20 settembre 2026). OVH non consente di cambiare la location di un VPS già creato (fonti: thread della community OVH e richiesta aperta sul roadmap pubblico di OVH, non una funzione disponibile); spostare il server in UE significherebbe ricostruirlo su un VPS nuovo. La scelta si rivaluta solo se il consulente lo richiede.
+
+**Cosa conta come dato personale.** Esportazioni Brevo (email, `GOODBARBER_USER_ID`, `STATO_DSKH`), CRM Notion con i lead, elenchi di contatti di reseller o clienti con nomi ed email (anche il nome e l'email di un referente di un partner sono dati personali). Contenuti pubblici, dossier, articoli del DSKU e dati fittizi non lo sono; l'account di prova con l'email di Euro è un dato di Euro. Se serve far lavorare gli agenti su numeri, si usano dati aggregati o anonimizzati ("1.200 iscritti, 8% lettori") e non elenchi nominativi.
+
+**Perché non basta guardare la posizione del server.** Ciò che gli agenti leggono passa ai fornitori AI, che sono fuori dall'UE (deduzione, da confermare con il consulente): è un secondo trasferimento, da valutare a parte. Un file con email di lettori messo in `da-agenti` attraversa Drive, il server e l'agente.
+
+**Domande da porre al consulente** (aperte):
+
+1. OVH come responsabile del trattamento: c'è l'accordo (DPA) e va bene per un VPS a Londra?
+2. Con quali garanzie i dati passano dagli agenti ai fornitori AI? Esistono impostazioni o piani che escludono l'uso per l'addestramento e limitano la conservazione?
+3. Informativa privacy e registro dei trattamenti: cosa aggiornare?
+4. Quali dati possono trattare gli agenti (per esempio solo pseudonimizzati, senza email) e quali mai?
+5. Tempi di conservazione e cancellazione sul server e nei backup OVH.
+
 ## 4. Governance delle azioni
 
 | Azione | Può proporla un agente | Può eseguirla automaticamente |

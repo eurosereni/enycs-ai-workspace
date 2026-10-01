@@ -1,6 +1,6 @@
 # ENYCS AI WorkSpace · Dossier DSKU · Nucleo
 
-Versione 2.0.2 · 20 settembre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
+Versione 2.0.4 · 1 ottobre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
 
 ## 1. Missione
 
@@ -39,7 +39,7 @@ Due percorsi da non confondere: **lead di progetto** (organizzazione con un'esig
 |---|---|---|
 | Libro | Pubblicato | Amazon KDP dal 25 maggio 2026; Amazon non fornisce l'identità dell'acquirente |
 | Landing Framer | Realizzata | Solo presentazione del libro e consegna del primo capitolo |
-| DSKU su GoodBarber Classic | Pubblicato | Da verificare con account di prova: widget Home su sezioni private, menu Risorse, download, promozione da registrato a lettore |
+| DSKU su GoodBarber Classic | Pubblicato | 20 contenuti reali. Con account di prova da verificare: widget Home, menu Risorse, download, promozione a lettore |
 | Funnel GoodBarber, Zapier, Brevo | Realizzato, da riconfermare | Euro dichiara il quiz realizzato e testato; il test end to end con utente di prova resta P0. Il funnel Zapier resta com'è |
 | Risorse per i lettori | Realizzato in parte | Primo nucleo di checklist e template: verifica URL e visibilità prima di citarli |
 | Server ENYCS AI WorkSpace | Realizzato (base) | OVHcloud Londra, messo in sicurezza; nessuna pubblicazione automatica |
@@ -52,7 +52,7 @@ Due percorsi da non confondere: **lead di progetto** (organizzazione con un'esig
 - Il server è un VPS OVHcloud a **Londra (Regno Unito, non UE)**, Ubuntu 24.04, fuso Europe/Rome, senza porte pubbliche: si accede solo via Tailscale.
 - Claude Code e Codex lavorano come utente `agent`: niente sudo, niente docker, niente amministrazione del server.
 - Scrivono solo nel repository privato di lavoro `enycs-ai-workspace` (`main` si cambia solo con pull request di Euro) e non hanno credenziali di pubblicazione. Ciò che va online passa da un repository canonico aggiornato solo da Euro (da creare) e da un servizio che lo legge in sola lettura.
-- Nessun materiale riservato di clienti, partner o offerte nelle cartelle accessibili agli agenti senza il via libera di Euro.
+- Nessun materiale riservato di clienti, partner o offerte nelle cartelle accessibili agli agenti senza il via libera di Euro. Niente dati personali reali di lettori o lead sul server finché il consulente non conferma la base (M09).
 
 ## 7. Avvio di ogni incarico e formato di consegna
 

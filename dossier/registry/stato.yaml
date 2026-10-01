@@ -1,5 +1,5 @@
 # Registro di stato ENYCS AI WorkSpace / DSKU
-# Aggiornato: 2026-09-20 (dossier v2.0.2)
+# Aggiornato: 2026-10-01 (dossier v2.0.4)
 # Fonte per la sezione infrastruttura: Runbook v1 e Documentazione dettagliata v1 del 2026-09-19
 # Stati ammessi: realizzato | realizzato_in_parte | pubblicato | predisposto | in_sviluppo | da_verificare | futuro | rinviato
 # Stati delle attivita' di roadmap: da_fare | in_corso | fatto
@@ -25,6 +25,25 @@ componenti:
       - "modalita' di lettura del Primo Capitolo"
       - "gestione download"
       - "promozione da registrato a lettore"
+    inventario_cms:
+      stato: fatto
+      verificato: "2026-09-20 (funzioni di sola lettura del connettore CMS; titoli, date, stati, sezioni; testi non analizzati)"
+      contenuti_reali: "20 pubblicati in 5 sezioni: Approfondimenti 6, Il Libro 4, Strumenti e Checklist 4, Template 4, Case Study Extra 2; Video e Webinar 0"
+      demo_goodbarber: "16 contenuti demo (4 articoli, 12 video) presenti al momento dell'inventario del 2026-09-20, poi cancellati da Euro; ricontrollo: 20 articoli, 0 video"
+      non_pubblicato: "case study His Majesty's Theatre di Perth (non risulta tra i contenuti del CMS)"
+      da_chiarire: "date del CMS diverse da quelle citate nel dossier per Checklist 04 (8 settembre) e Template 03 (3 settembre); due contenuti senza titolo e descrizione SEO (Instagram, Checklist RFP); indirizzo del Template ROI con refuso; commenti abilitati su 19 contenuti su 20"
+      limite: "il connettore non mostra livelli di accesso, widget Home, menu, download e pagine non CMS: si verificano con l'account di prova"
+    bozze_cms:
+      - id: 98150209
+        titolo: "Lo schermo giusto al momento giusto funziona anche quando lo schermo e' tuo?"
+        stato: bozza
+        creata: "2026-09-25 da Claude su richiesta esplicita di Euro (decisione del 2026-09-25)"
+        sezione: "Approfondimenti > Retail Media & DOOH"
+        mancano: "immagini (prompt pronti, da generare con Gemini), decisione su commenti e CTA, approvazione alla pubblicazione"
+        dettagli: "ds-weekly/approfondimenti/2026-09-24/cms/STATO-CMS.md (branch agent/approfondimento-dco-retail)"
+    lista_di_prova_accessi:
+      stato: predisposto
+      nota: "Lista di prova con account di prova pronta (documento 'Lista di prova accessi DSKU'); da eseguire piu' avanti"
   funnel_gb_zapier_brevo:
     stato: realizzato
     dettaglio: "Quiz di verifica del possesso del libro realizzato e testato (dichiarazione di Euro); funnel Zapier mantenuto com'e'"
@@ -49,11 +68,13 @@ infrastruttura:
     hostname: "enycs-ai-workspace"
     porte_pubbliche: nessuna
     accesso: "Tailscale; SSH con sola chiave"
+    regione: "Londra; OVH non permette di cambiare la location di un VPS gia' creato (fonti: thread della community OVH e richiesta aperta sul roadmap pubblico, non una funzione disponibile); spostarlo vorrebbe dire ricostruirlo su un VPS nuovo. Decisione di Euro del 2026-09-20: il server resta a Londra"
+    ssh_effettivo: "verificato il 2026-09-20 con sshd -T: login root no, solo chiave, niente password ne' keyboard-interactive"
     fuso_orario: "Europe/Rome dal 2026-09-20 (prima Etc/UTC); sincronizzazione NTP attiva"
     avvio: "BIOS (legacy); in /etc/fstab la voce /boot/efi ha nofail (copia di sicurezza /etc/fstab.bak-20260920)"
     verificato: "2026-09-20"
   utenti_server:
-    admin: "ubuntu (solo Euro)"
+    admin: "ubuntu (solo Euro; password impostata da Euro il 2026-09-19 al posto di quella temporanea inviata da OVH; non e' nel dossier)"
     agenti: "agent (senza sudo, senza docker)"
   agenti_installati:
     - "Claude Code (utente agent)"
@@ -70,7 +91,7 @@ infrastruttura:
   ponte_drive:
     stato: realizzato
     dettaglio: "Cartella Drive ENYCS-AI-Workspace (da-agenti, dagli-agenti) <-> ~/scambio/da-drive e verso-drive dell'utente agent; rsync via Tailscale con due chiavi dedicate a comando forzato (rrsync: push solo scrittura, pull solo lettura); job launchd sul Mac ogni 10 minuti; il server non ha credenziali Google"
-    verificato: "2026-09-20 (test del 2026-09-19 ripetuto con la cartella del dossier: Drive, server e repository identici; riga duplicata in authorized_keys rimossa)"
+    verificato: "2026-09-23 (direzione server -> Drive: i file scritti in ~/scambio/verso-drive sono arrivati sul Mac, conferma di Euro; direzione Drive -> server: ultimo arrivo in da-drive il 2026-09-21). Precedente: 2026-09-20 (test del 2026-09-19 ripetuto con la cartella del dossier: Drive, server e repository identici; riga duplicata in authorized_keys rimossa)"
     limite: "funziona solo con il Mac acceso e collegato a Tailscale; un errore 255 subito dopo l'avvio del Mac (Tailscale non ancora attivo) e' innocuo, il job riparte da solo"
   backup_ovh:
     stato: realizzato
@@ -81,6 +102,10 @@ infrastruttura:
       - "ripristino completo: NON provato (non si prova sul VPS in uso: sovrascrive tutto)"
       - "cambio dell'orario del backup richiesto da Euro: effetto atteso dopo 24-48 ore"
       - "il pannello OVH indica 'Non sono presenti punti di ripristino' pur elencando il punto di ripristino: differenza non spiegata"
+  privacy_dati_personali:
+    stato: regola_prudenziale
+    dettaglio: "Nessun dato personale reale di lettori o lead sul server (e quindi neppure nelle cartelle lette dagli agenti) finche' il consulente non conferma base giuridica e garanzie; vale anche per il passaggio dei contenuti ai fornitori AI. Nessuna dichiarazione di conformita' GDPR"
+    aperto: "domande per il consulente in M09"
   disco_aggiuntivo:
     stato: da_fare
     dettaglio: "50 GB, /dev/sdb, non formattato e non montato; destinato a un media repository (decisione di Euro, 2026-09-20)"
@@ -91,11 +116,13 @@ infrastruttura:
   filtro_traffico_uscita:
     stato: da_verificare
   autenticazione_a_due_fattori:
-    stato: da_verificare
-    ambiti: [github, tailscale, ovh, fornitori_ai]
+    stato: realizzato_in_parte
+    ovh: "attivata da Euro il 2026-09-20 (dichiarazione; il metodo non e' registrato qui e non e' stato verificato da Claude); i codici di recupero sono custoditi da Euro fuori da Drive, repository e cartelle degli agenti"
+    altri_ambiti: "GitHub, Tailscale, fornitori AI e Google Drive: 2FA non attivata per scelta di Euro (2026-09-20)"
   accesso_emergenza_console_ovh:
-    stato: da_verificare
-    nota: "Da documentare"
+    stato: realizzato
+    dettaglio: "Console KVM del pannello OVH: accesso con l'utente ubuntu provato da Euro il 2026-09-20; scheda di emergenza di una pagina (ENYCS Emergenza Console OVH v1) con sette comandi di sole lettere"
+    limite: "la console non e' uno strumento di recupero se il sistema e' perso (serve la modalita' rescue, non provata); tastiera con layout diverso e niente copia-incolla"
   funnel_api_dominio_servizi:
     stato: rinviato
     nota: "Nessun dominio adatto; se ne riparla dopo il pilota"
@@ -114,11 +141,11 @@ agenti:
 roadmap:
   P0:
     - {id: P0-1, attivita: "Dossier v2 come fonte master nel repository", stato: fatto}
-    - {id: P0-2, attivita: "Inventario reale del DSKU", stato: da_fare}
-    - {id: P0-3, attivita: "Test end to end GoodBarber-Brevo-Zapier con utente di prova", stato: da_fare}
+    - {id: P0-2, attivita: "Inventario reale del DSKU (contenuti CMS fatti il 2026-09-20; restano accessi e pagine non CMS, da verificare con l'account di prova)", stato: in_corso}
+    - {id: P0-3, attivita: "Test end to end GoodBarber-Brevo-Zapier con utente di prova (lista di prova pronta; da eseguire)", stato: da_fare}
     - {id: P0-4, attivita: "Corpus iniziale del Knowledge Hub Agent (selettivo)", stato: da_fare}
     - {id: P0-5, attivita: "Sequenze Brevo: completare o verificare", stato: da_fare}
-    - {id: P0-6, attivita: "Verifiche server: backup, montaggio, 2FA, accesso emergenza (backup e montaggio fatti il 2026-09-20; restano 2FA e accesso di emergenza)", stato: in_corso}
+    - {id: P0-6, attivita: "Verifiche server: backup, montaggio, 2FA, accesso emergenza (fatte il 2026-09-20; restano non provati il ripristino completo e la modalita' rescue)", stato: fatto}
   P1:
     - {id: P1-1, attivita: "Calendario editoriale trimestrale", stato: da_fare}
     - {id: P1-2, attivita: "Standard scheda editoriale, SEO, LinkedIn, newsletter", stato: da_fare}

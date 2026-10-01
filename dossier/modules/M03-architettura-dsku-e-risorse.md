@@ -48,17 +48,27 @@ L'Area Risorse è il motivo concreto per cui il libro continua a produrre valore
 | Aggiornamenti | Corregge, integra o amplia temi soggetti a evoluzione | Protegge nel tempo il valore del libro |
 | Video e webinar | Spiega temi complessi o restituisce domande ricorrenti | Rafforza relazione e interazione, se esistono contenuti reali |
 
-## 6. Risorse e pacchetti già lavorati (stato noto al 19 settembre 2026)
+## 6. Risorse e pacchetti già lavorati (aggiornato al 20 settembre 2026)
 
 | Risorsa o pacchetto | Stato noto | Nota operativa |
 |---|---|---|
 | Checklist iniziali e template iniziali | Realizzati nel primo nucleo di risorse | Verifica titoli, URL e visibilità nel back office prima di citarli |
-| Checklist 04 Collaudo e Messa in Servizio Digital Signage | Documento PDF creato il 17 settembre 2026 | Riferimento per il formato delle checklist operative |
-| Template 03 Piano Editoriale e Palinsesto | Documento e presentazione GoodBarber creati il 17 settembre 2026 | Collega contenuti, programmazione e governance |
-| Template 04 ROI e Business Case | Documento e presentazione GoodBarber creati il 17 settembre 2026 | Collega strategia, investimenti, misurazione e decisione |
-| Case Study Extra HDN1 | Caso sviluppato per il Knowledge Hub | Rete ferramenta, palinsesti mensili, elimina-code, intrattenimento, promozioni: verifica lo stato di pubblicazione |
-| Case Study Extra His Majesty's Theatre Perth | Archivio esecutivo v1.0 del 18 agosto 2026 | Pronto come base GoodBarber; distingui sempre fatti documentati e proposte di trasferibilità |
-| Approfondimento sul cambio di ruolo del system integrator | Pacchetto editoriale e visual kit preparati a settembre 2026 | Utile per parlare di AV IT, servizi gestiti e responsabilità continuativa |
+| Checklist 04 Collaudo e Messa in Servizio Digital Signage | **Pubblicata** nel CMS (data 8 settembre 2026); documento PDF creato il 17 settembre 2026 | Le due date non coincidono: da chiarire (può dipendere da cosa indica la data nel CMS) |
+| Template 03 Piano Editoriale e Palinsesto | **Pubblicato** nel CMS (3 settembre 2026); documento e presentazione creati il 17 settembre 2026 | Stessa differenza di date: da chiarire |
+| Template 04 ROI e Business Case | **Pubblicato** il 17 settembre 2026 | L'indirizzo della pagina ha un refuso: correggerlo cambia l'URL, prima controlla dove è già usato (Brevo, LinkedIn, PDF) |
+| Case Study Extra HDN1 | **Pubblicato** il 16 luglio 2026 | Rete ferramenta, palinsesti mensili, elimina-code, intrattenimento, promozioni |
+| Case Study Extra Babraham Research Campus | **Pubblicato** il 14 settembre 2026 | Media condiviso da 60 aziende; non era nel dossier v2.0.2 |
+| Case Study Extra His Majesty's Theatre Perth | Archivio esecutivo v1.0 del 18 agosto 2026; **non risulta pubblicato** nel CMS | Pronto come base GoodBarber; distingui sempre fatti documentati e proposte di trasferibilità |
+| Approfondimento sul cambio di ruolo del system integrator | **Pubblicato** il 1 settembre 2026 | Utile per parlare di AV IT, servizi gestiti e responsabilità continuativa |
+| Approfondimenti Cloud, on-premise o ibrido (14 settembre) e Instagram nei monitor (29 luglio) | **Pubblicati** | Prima non citati; l'articolo su Instagram non ha titolo né descrizione SEO |
+
+### Inventario del CMS al 20 settembre 2026
+
+Fonte: funzioni di sola lettura del connettore CMS del DSKU (titoli, date, stati, sezioni; i testi non sono stati analizzati). **20 contenuti editoriali reali, tutti pubblicati, in 5 sezioni:** Approfondimenti 6, Il Libro 4, Strumenti e Checklist 4, Template 4, Case Study Extra 2. La sezione Video e Webinar è vuota: non promettere video o webinar. I 16 contenuti demo del modello GoodBarber (meditazione e gravidanza) sono stati cancellati da Euro; il ricontrollo mostra 20 articoli e 0 video. Nel CMS nulla risulta in bozza, programmato o in archivio. **Il connettore non mostra** livelli di accesso, widget Home, menu, download e pagine non CMS (Primo Capitolo, Risorse per i Lettori, Sblocca le Risorse, Aggiornamenti del Libro, Euro Sereni, Contatti): si verificano con l'account di prova. L'elenco completo dei titoli è nel documento separato "Inventario DSKU · 20 settembre 2026", non in questo dossier.
+
+**Aggiornamento del 25 settembre 2026:** nel CMS c'è ora una bozza, l'approfondimento «Lo schermo giusto al momento giusto funziona anche quando lo schermo è tuo?» (id 98150209, Approfondimenti → Retail Media & DOOH), creata su richiesta esplicita di Euro e non pubblicata. Stato e prossimi passi in `ds-weekly/approfondimenti/2026-09-24/cms/STATO-CMS.md`.
+
+Da chiarire: commenti abilitati su 19 contenuti su 20 (è voluto? chi modera?) e un possibile refuso nel testo dell'articolo Cloud, on-premise o ibrido, visto per caso in un frammento.
 
 ## 7. Regola di pubblicazione
 

@@ -29,3 +29,7 @@
 | Stato premium | LIBRO_ACQUISTATO | Stato funzionale previsto |
 | Attributo ponte | GOODBARBER_USER_ID | Chiave tecnica di riconciliazione |
 | Gruppo GoodBarber | LibroAcquistato | Permesso per le risorse premium |
+| Navori QL, manuale: Rule-Based Playback | https://manual-qlpro.navori.com/Rule-BasedPlayback.html | Contenuti condizionati da data feed; dalla v2.1; letto il 24 settembre 2026 |
+| Navori QL, manuale: Rule-Based Triggering | https://manual-qlpro.navori.com/Rule-BasedTriggering.html | Trigger da feed, CAP, Trigger API, sensori; add-on Trigger Media sull'on-premise; letto il 24 settembre 2026 |
+| Navori + Nexmosphere, demo Lift & Learn RFID | https://www.youtube.com/watch?v=zDgNP2aPeKk | InfoComm 2025, fonte del produttore |
+| Nexmosphere | https://www.nexmosphere.com | Sensori per Digital Signage (Eindhoven); dichiara oltre 25 sensori, USB o UDP, da 1 a 250 sensori |
