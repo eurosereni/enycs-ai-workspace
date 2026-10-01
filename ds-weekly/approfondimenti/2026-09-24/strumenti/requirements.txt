@@ -1,0 +1,5 @@
+# Librerie usate per generare JSON e PDF dell'approfondimento DCO retail (Python 3.12)
+fpdf2==2.8.8
+Markdown==3.10.3
+# Facoltativa: solo per l'anteprima PNG delle pagine PDF durante il controllo visivo
+PyMuPDF==1.28.2
