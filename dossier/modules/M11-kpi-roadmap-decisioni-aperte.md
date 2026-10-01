@@ -1,6 +1,6 @@
 # M11 · KPI, apprendimento, roadmap e decisioni aperte
 
-*Carica quando:* imposti misurazioni o dashboard, pianifichi attività, chiedi a Euro quali decisioni mancano. *Origine:* dossier v1, sezioni 15 e 16, aggiornate al 19 settembre 2026.
+*Carica quando:* imposti misurazioni o dashboard, pianifichi attività, chiedi a Euro quali decisioni mancano. *Origine:* dossier v1, sezioni 15 e 16, aggiornate al 20 settembre 2026.
 
 ## 1. Principio di misurazione
 
@@ -37,11 +37,11 @@ Lo stato di ogni voce è nel registro (`registry/stato.yaml`).
 | Attività | Risultato atteso |
 |---|---|
 | Tenere questo dossier come fonte master nel repository degli agenti (fatto il 20 settembre: `dossier/` in `main`; da tenere aggiornato) | Stesso contesto e stessi limiti per tutti |
-| Inventario reale del DSKU: pagine, risorse, URL, accessi, CTA, contenuti pubblicati | Distinzione affidabile fra realizzato, predisposto e da pubblicare |
-| Test end to end del flusso GoodBarber, Brevo, Zapier, GoodBarber con un account di prova | Percorso lettore documentato, senza false aspettative |
+| Inventario reale del DSKU: pagine, risorse, URL, accessi, CTA, contenuti pubblicati (contenuti del CMS fatti il 20 settembre: 20 contenuti reali pubblicati; restano accessi e pagine non CMS, con l'account di prova) | Distinzione affidabile fra realizzato, predisposto e da pubblicare |
+| Test end to end del flusso GoodBarber, Brevo, Zapier, GoodBarber con un account di prova (lista di prova pronta; da eseguire con dati fittizi e un'email di Euro) | Percorso lettore documentato, senza false aspettative |
 | Caricamento selettivo del corpus iniziale del Knowledge Hub Agent | Primo agente editoriale su fonti approvate |
 | Completare o verificare le sequenze Brevo già predisposte | Percorso del primo capitolo e del lettore coerente con gli accessi |
-| Chiudere le verifiche del server: backup e prova di montaggio fatti il 20 settembre; restano 2FA e accesso di emergenza (ripristino completo non provato) | Base tecnica affidabile |
+| Verifiche del server: fatte il 20 settembre (backup e montaggio, 2FA su OVH, accesso di emergenza dalla console); restano non provati il ripristino completo e la modalità rescue | Base tecnica affidabile |
 
 ### P1 · breve termine
 
@@ -71,9 +71,12 @@ Chiuse dopo il v1: infrastruttura server (OVHcloud Londra); quiz come verifica d
 2. Inventario definitivo delle risorse pubblicate e di quelle pronte.
 3. Modello dati e connessione effettiva del CRM Notion.
 4. Responsabile tecnico dell'infrastruttura, oltre a Euro.
-5. Confini e consenso del futuro assistente conversazionale; base di trattamento dei dati e trasferimento verso il Regno Unito.
+5. Confini e consenso del futuro assistente conversazionale; base di trattamento dei dati, trasferimento verso il Regno Unito e passaggio ai fornitori AI (domande per il consulente in M09; il server resta a Londra).
 6. Criteri quantitativi per MQL, lead di progetto, lead di canale, opportunità.
 7. Deleghe per eventuali invii, pubblicazioni o aggiornamenti automatici.
 8. Dominio per i servizi e funnel applicativo (rinviati).
 9. Creazione del repository canonico.
 10. Se attivare lo Snapshot OVH prima di modifiche rischiose (Docker, aggiornamento del sistema) e la strategia di backup del disco da 50 GB.
+11. Prova del ripristino completo del server e della modalità rescue (non provati); controllo dell'effetto del cambio d'orario del backup.
+12. Metodo della 2FA su OVH da registrare; eventuale 2FA sugli altri account (scelta di Euro: per ora no).
+13. Esito dei controlli sugli accessi del DSKU con l'account di prova; correzioni ai contenuti (refuso, SEO, indirizzo del Template ROI, commenti).

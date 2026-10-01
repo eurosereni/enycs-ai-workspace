@@ -17,3 +17,7 @@ Ogni riga: data, decisione, chi l'ha presa, dove ha effetto. Si aggiunge in coda
 | 2026-09-20 | Il fuso orario del server è Europe/Rome (prima UTC), per avere date e orari coerenti con quelli di Euro nei file scritti dagli agenti | Euro | M08, nucleo punto 6 |
 | 2026-09-20 | Il ramo `main` del repository di lavoro è protetto da un ruleset: modifiche solo tramite pull request, che approva Euro | Euro | M08, `registry/stato.yaml` |
 | 2026-09-20 | Il disco aggiuntivo da 50 GB sarà un media repository; per ora resta non formattato | Euro | M08, `registry/stato.yaml` |
+| 2026-09-20 | 2FA attivata su OVH (con codici di recupero custoditi da Euro fuori da Drive, repository e cartelle degli agenti); non attivata su GitHub, Tailscale, fornitori AI e Google Drive | Euro | M08, `registry/stato.yaml` |
+| 2026-09-20 | Accesso di emergenza dalla console OVH provato con l'utente `ubuntu`; password scelta da Euro al posto di quella temporanea di OVH | Euro | M08, `registry/stato.yaml` |
+| 2026-09-20 | Il server resta a Londra. OVH non consente di spostare la location di un VPS esistente (servirebbe un VPS nuovo); finché il consulente non conferma la base giuridica, nessun dato personale reale sul server | Euro | M08, M09, nucleo punto 6 |
+| 2026-09-20 | I contenuti demo di GoodBarber (meditazione e gravidanza) sono stati cancellati da Euro; il connettore CMS del DSKU si usa solo in lettura, salvo diversa decisione di Euro | Euro | M03, `registry/stato.yaml` |

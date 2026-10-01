@@ -15,7 +15,8 @@ ENYCS AI WorkSpace è un progetto di infrastruttura e metodo. Il server **non os
 | VPS OVHcloud, Londra (Regno Unito, **non UE**) | Realizzato | Ubuntu 24.04, 4 vCore, 8 GB RAM, 75 GB più disco aggiuntivo da 50 GB (vedi sotto); hostname `enycs-ai-workspace`; avvio BIOS; fuso `Europe/Rome` dal 20 settembre 2026 |
 | Porte pubbliche | Nessuna | Accesso solo tramite Tailscale; SSH con sola chiave |
 | Tailscale | Realizzato | Policy con accesso consentito dal Mac di Euro al server; test di policy presenti |
-| Utenti sul server | Realizzato | `ubuntu` (amministratore, solo Euro); `agent` (senza sudo e senza docker, usato da Claude Code e Codex) |
+| SSH | Verificato il 20 settembre 2026 | Configurazione effettiva (`sshd -T`): login root no, solo chiave, niente password né keyboard-interactive |
+| Utenti sul server | Realizzato | `ubuntu` (amministratore, solo Euro; password scelta da Euro al posto di quella temporanea di OVH); `agent` (senza sudo e senza docker, usato da Claude Code e Codex) |
 | Claude Code e Codex CLI | Installati come utente `agent` | Il metodo di login di Codex che ha funzionato non è registrato: da documentare |
 | Repository di lavoro privato `enycs-ai-workspace` | Realizzato | Chiave deploy in scrittura solo su quel repository. `main` è protetto: si modifica solo con pull request approvata da Euro (push diretto rifiutato, verificato). Contiene la cartella `dossier/` |
 | Repository canonico (scritto solo da Euro) | **Da creare** | Necessario per la pubblicazione al merge |
@@ -24,8 +25,10 @@ ENYCS AI WorkSpace è un progetto di infrastruttura e metodo. Il server **non os
 | Ponte con Google Drive | Realizzato, riverificato il 20 settembre | Cartella `ENYCS-AI-Workspace` con `da-agenti` e `dagli-agenti`, copiate in un solo senso per cartella dal Mac verso `~/scambio/da-drive` e da `~/scambio/verso-drive` (rsync via Tailscale, chiavi dedicate e confinate, ogni 10 minuti a Mac acceso); il server non ha credenziali Google. Funziona solo con il Mac acceso e su Tailscale |
 | Docker, Portainer, Uptime Kuma | **Non verificati** | Previsti nel v1; non presentarli come installati |
 | Filtro del traffico in uscita | Sconosciuto | Da valutare |
-| 2FA su GitHub, Tailscale, OVH e fornitori AI | Da verificare | |
-| Accesso di emergenza dalla console OVH | Da documentare | Serve se Tailscale non risponde |
+| 2FA | Realizzata in parte | Attivata da Euro su OVH il 20 settembre 2026 (dichiarazione; metodo non registrato; codici di recupero custoditi da Euro fuori da Drive, repository e cartelle degli agenti). Su GitHub, Tailscale, fornitori AI e Google Drive non attivata, per scelta di Euro |
+| Accesso di emergenza dalla console OVH | Realizzato e provato il 20 settembre 2026 | Console KVM del pannello OVH, accesso con `ubuntu`; scheda di una pagina con sette comandi di sole lettere (la tastiera della console ha layout diverso e non c'è copia-incolla). Non è uno strumento di recupero se il sistema è perso: serve la modalità rescue, **non provata** |
+
+**Regione.** Il server resta a Londra (decisione di Euro, 20 settembre 2026). OVH non permette di cambiare la location di un VPS già creato: spostarlo vorrebbe dire ordinare un VPS nuovo in una location UE e ricostruirlo. Finché il consulente non conferma la base giuridica, sul server non ci sono dati personali reali (M09).
 
 Dettagli e comandi sono nella documentazione operativa separata (Runbook v1 e Documentazione dettagliata v1), non in questo dossier.
 
@@ -77,6 +80,7 @@ Ogni dato è pubblico, interno, riservato, personale o finanziario. Un agente no
 
 - Lavora nella cartella del repository `enycs-ai-workspace`; commit con l'identità dell'agente, mai con quella di Euro.
 - Date e orari nei file sono in `Europe/Rome`: per un orario programmato scrivi sempre il fuso. Le pianificazioni di OVH sono in UTC.
+- Non copiare nelle cartelle del server (né in `da-drive`) esportazioni Brevo, elenchi di contatti, esportazioni del CRM o altri dati personali reali senza il via libera di Euro: vedi M09.
 - Non tentare di ottenere privilegi, aprire porte, cambiare la configurazione di SSH, Tailscale o del firewall, né leggere le chiavi di altri utenti.
 - Se un'attività richiede privilegi amministrativi, fermati e descrivi a Euro cosa serve e perché.
 - Ogni modifica a una mappatura o a un flusso documenta campo, sistema sorgente, sistema destinazione, test e rollback. Nessun flusso in produzione senza prova con dati di test.
