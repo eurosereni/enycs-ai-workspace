@@ -6,3 +6,6 @@ auth.json
 .claude/
 .codex/
 node_modules/
+
+# Ambiente Python locale della DS Weekly (collegamenti al Python del server)
+ds-weekly/venv/
