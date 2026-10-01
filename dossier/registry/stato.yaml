@@ -1,5 +1,5 @@
 # Registro di stato ENYCS AI WorkSpace / DSKU
-# Aggiornato: 2026-09-20 (dossier v2.0.3)
+# Aggiornato: 2026-10-01 (dossier v2.0.4)
 # Fonte per la sezione infrastruttura: Runbook v1 e Documentazione dettagliata v1 del 2026-09-19
 # Stati ammessi: realizzato | realizzato_in_parte | pubblicato | predisposto | in_sviluppo | da_verificare | futuro | rinviato
 # Stati delle attivita' di roadmap: da_fare | in_corso | fatto
@@ -33,6 +33,14 @@ componenti:
       non_pubblicato: "case study His Majesty's Theatre di Perth (non risulta tra i contenuti del CMS)"
       da_chiarire: "date del CMS diverse da quelle citate nel dossier per Checklist 04 (8 settembre) e Template 03 (3 settembre); due contenuti senza titolo e descrizione SEO (Instagram, Checklist RFP); indirizzo del Template ROI con refuso; commenti abilitati su 19 contenuti su 20"
       limite: "il connettore non mostra livelli di accesso, widget Home, menu, download e pagine non CMS: si verificano con l'account di prova"
+    bozze_cms:
+      - id: 98150209
+        titolo: "Lo schermo giusto al momento giusto funziona anche quando lo schermo e' tuo?"
+        stato: bozza
+        creata: "2026-09-25 da Claude su richiesta esplicita di Euro (decisione del 2026-09-25)"
+        sezione: "Approfondimenti > Retail Media & DOOH"
+        mancano: "immagini (prompt pronti, da generare con Gemini), decisione su commenti e CTA, approvazione alla pubblicazione"
+        dettagli: "ds-weekly/approfondimenti/2026-09-24/cms/STATO-CMS.md (branch agent/approfondimento-dco-retail)"
     lista_di_prova_accessi:
       stato: predisposto
       nota: "Lista di prova con account di prova pronta (documento 'Lista di prova accessi DSKU'); da eseguire piu' avanti"
@@ -83,7 +91,7 @@ infrastruttura:
   ponte_drive:
     stato: realizzato
     dettaglio: "Cartella Drive ENYCS-AI-Workspace (da-agenti, dagli-agenti) <-> ~/scambio/da-drive e verso-drive dell'utente agent; rsync via Tailscale con due chiavi dedicate a comando forzato (rrsync: push solo scrittura, pull solo lettura); job launchd sul Mac ogni 10 minuti; il server non ha credenziali Google"
-    verificato: "2026-09-20 (test del 2026-09-19 ripetuto con la cartella del dossier: Drive, server e repository identici; riga duplicata in authorized_keys rimossa)"
+    verificato: "2026-09-23 (direzione server -> Drive: i file scritti in ~/scambio/verso-drive sono arrivati sul Mac, conferma di Euro; direzione Drive -> server: ultimo arrivo in da-drive il 2026-09-21). Precedente: 2026-09-20 (test del 2026-09-19 ripetuto con la cartella del dossier: Drive, server e repository identici; riga duplicata in authorized_keys rimossa)"
     limite: "funziona solo con il Mac acceso e collegato a Tailscale; un errore 255 subito dopo l'avvio del Mac (Tailscale non ancora attivo) e' innocuo, il job riparte da solo"
   backup_ovh:
     stato: realizzato

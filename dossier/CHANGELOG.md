@@ -1,5 +1,9 @@
 # Changelog del dossier
 
+## 2.0.4 · 1 ottobre 2026
+
+Aggiornamenti dal lavoro del 23-25 settembre sull'approfondimento DCO retail. **Ponte con Drive:** riverificato il 23 settembre nella direzione server → Drive (M08, `registry/stato.yaml`). **Navori:** conferma di Euro del 24 settembre su trigger interni ed esterni e sensori Nexmosphere, con le fonti pubbliche verificate e il limite su cosa scrivere nei testi pubblici (M01, `registry/riferimenti.md`). **CMS DSKU:** decisione del 25 settembre che autorizza la scrittura per la sola bozza dell'approfondimento DCO retail (id 98150209, non pubblicata); la regola del 20 settembre sulla sola lettura resta valida per il resto (M03, `registry/stato.yaml`). Tre righe nuove in `registry/decisioni.md`. Il nucleo cambia solo nella versione.
+
 ## 2.0.3 · 20 settembre 2026
 
 Chiuse le verifiche del server e fatto l'inventario dei contenuti del DSKU. `registry/stato.yaml`, `registry/decisioni.md`, M03, M08, M09, M11 e nucleo aggiornati. **Server:** accesso di emergenza dalla console OVH provato; 2FA attivata su OVH (per scelta di Euro non su GitHub, Tailscale, fornitori AI e Google Drive); configurazione SSH verificata; il server resta a Londra (OVH non permette di cambiare la location di un VPS esistente). **Privacy:** M09 chiarisce cosa conta come dato personale, il secondo trasferimento verso i fornitori AI e le domande per il consulente; regola invariata: nessun dato personale reale sul server finché la base non è confermata. **DSKU:** M03 riporta l'inventario del CMS (20 contenuti reali pubblicati, contenuti demo cancellati), aggiorna lo stato delle risorse (system integrator, HDN1, Cloud, Instagram pubblicati; Babraham aggiunto; Perth non pubblicato) e segna cosa resta da verificare. **Roadmap:** P0-6 fatta (restano non provati ripristino completo e modalità rescue), P0-2 in corso, P0-3 in attesa dell'account di prova. Il nucleo cambia in quattro voci (versione, DSKU, server, dati personali).

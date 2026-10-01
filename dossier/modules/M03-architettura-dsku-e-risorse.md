@@ -66,6 +66,8 @@ L'Area Risorse è il motivo concreto per cui il libro continua a produrre valore
 
 Fonte: funzioni di sola lettura del connettore CMS del DSKU (titoli, date, stati, sezioni; i testi non sono stati analizzati). **20 contenuti editoriali reali, tutti pubblicati, in 5 sezioni:** Approfondimenti 6, Il Libro 4, Strumenti e Checklist 4, Template 4, Case Study Extra 2. La sezione Video e Webinar è vuota: non promettere video o webinar. I 16 contenuti demo del modello GoodBarber (meditazione e gravidanza) sono stati cancellati da Euro; il ricontrollo mostra 20 articoli e 0 video. Nel CMS nulla risulta in bozza, programmato o in archivio. **Il connettore non mostra** livelli di accesso, widget Home, menu, download e pagine non CMS (Primo Capitolo, Risorse per i Lettori, Sblocca le Risorse, Aggiornamenti del Libro, Euro Sereni, Contatti): si verificano con l'account di prova. L'elenco completo dei titoli è nel documento separato "Inventario DSKU · 20 settembre 2026", non in questo dossier.
 
+**Aggiornamento del 25 settembre 2026:** nel CMS c'è ora una bozza, l'approfondimento «Lo schermo giusto al momento giusto funziona anche quando lo schermo è tuo?» (id 98150209, Approfondimenti → Retail Media & DOOH), creata su richiesta esplicita di Euro e non pubblicata. Stato e prossimi passi in `ds-weekly/approfondimenti/2026-09-24/cms/STATO-CMS.md`.
+
 Da chiarire: commenti abilitati su 19 contenuti su 20 (è voluto? chi modera?) e un possibile refuso nel testo dell'articolo Cloud, on-premise o ibrido, visto per caso in un frammento.
 
 ## 7. Regola di pubblicazione

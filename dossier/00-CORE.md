@@ -1,6 +1,6 @@
 # ENYCS AI WorkSpace · Dossier DSKU · Nucleo
 
-Versione 2.0.3 · 20 settembre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
+Versione 2.0.4 · 1 ottobre 2026 · Riservato ENYCS. Destinatari: Euro Sereni, Claude, Codex e agenti autorizzati. Leggi questo nucleo per intero a ogni incarico e carica un modulo solo se il compito lo richiede (mappa al punto 8).
 
 ## 1. Missione
 
